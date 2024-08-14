@@ -4,6 +4,8 @@
 
 The BKit App is a SwiftUI-based application designed to display a categorized list of grocery products. The app features only one screen having a sidebar for category selection and a dynamic product listing that updates based on the selected category. It includes scrolling behavior to automatically switch categories when scrolling through product lists. The project is designed with a clean and modern UI using SwiftUI and leverages asynchronous data fetching.
 
+Preview Video: https://drive.google.com/file/d/1-Pw-xlisZznbbq9olPgaRg3c6ZQKGhzU/view?usp=sharing
+
 ## Features
 
 - **Category Selection**: Users can select different product categories from a sidebar.
