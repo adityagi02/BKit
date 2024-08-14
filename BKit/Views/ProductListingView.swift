@@ -17,10 +17,12 @@ struct ProductListingView: View {
     @State private var scrollThreshold = (UIScreen.main.bounds.height * 0.20)
     /// A timer used to debounce automatic category changes based on scrolling.
     @State private var timer: Timer?
+    @State private var isCategoryChanging = false
+
     
     /// The maximum scroll offset for the current category's products.
     private var maxScrollOffset: CGFloat {
-        CGFloat((self.dataModel.getCategoryFromID(categoryID: dataModel.selectedCategoryID).products?.count ?? 3) * (-90))
+        CGFloat((self.dataModel.getCategoryFromID(categoryID: dataModel.selectedCategoryID).products?.count ?? 3) * (-75))
     }
     
     var body: some View {
@@ -64,26 +66,21 @@ struct ProductListingView: View {
     /// Handles scroll offset changes to determine if the category should be switched.
     ///
     /// This method updates the selected category based on the scroll position and
-    /// the predefined thresholds. It uses a timer to debounce category changes to avoid
-    /// rapid switching.
+    /// the predefined thresholds.
     ///
     /// - Parameter newValue: The new scroll offset value.
     private func handleScrollOffsetChange(_ newValue: CGFloat) {
-        // Scroll down to the bottom of the current category
+        guard !isCategoryChanging else { return }
+        isCategoryChanging = true
+        
         if newValue < maxScrollOffset && dataModel.selectedCategoryID < (dataModel.categories?.count ?? 1) - 1 {
-            timer?.invalidate()
-            timer = Timer.scheduledTimer(withTimeInterval: 0.05, repeats: false) { _ in
-                dataModel.selectedCategoryID += 1
-            }
+            dataModel.selectedCategoryID += 1
         }
-        // Scroll up to the top of the current category
         if newValue > scrollThreshold && dataModel.selectedCategoryID > 0 {
-            timer?.invalidate()
-            timer = Timer.scheduledTimer(withTimeInterval: 0.05, repeats: false) { _ in
-                if dataModel.selectedCategoryID > 0 {
-                    dataModel.selectedCategoryID -= 1
-                }
-            }
+            dataModel.selectedCategoryID -= 1
+        }
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+            isCategoryChanging = false
         }
     }
 }

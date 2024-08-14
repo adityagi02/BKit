@@ -76,6 +76,16 @@ let mockGroceryData =  """
           "productImageUrl": "https://example.com/images/pear.jpg",
           "productName": "Pear",
           "productPrice": 1.69
+        },
+        {
+          "productImageUrl": "https://example.com/images/banana.jpg",
+          "productName": "Banana",
+          "productPrice": 0.99
+        },
+        {
+          "productImageUrl": "https://example.com/images/cherry.jpg",
+          "productName": "Cherry",
+          "productPrice": 2.99
         }
       ]
     },
@@ -230,11 +240,6 @@ let mockGroceryData =  """
           "productImageUrl": "https://example.com/images/turmeric.jpg",
           "productName": "Turmeric",
           "productPrice": 3.99
-        },
-        {
-          "productImageUrl": "https://example.com/images/paprika.jpg",
-          "productName": "Paprika",
-          "productPrice": 2.49
         }
       ]
     },
@@ -312,11 +317,6 @@ let mockGroceryData =  """
           "productImageUrl": "https://example.com/images/bran.jpg",
           "productName": "Bran",
           "productPrice": 2.99
-        },
-        {
-          "productImageUrl": "https://example.com/images/quinoa.jpg",
-          "productName": "Quinoa",
-          "productPrice": 5.49
         }
       ]
     },
@@ -394,11 +394,6 @@ let mockGroceryData =  """
           "productImageUrl": "https://example.com/images/milk.jpg",
           "productName": "Milk",
           "productPrice": 2.79
-        },
-        {
-          "productImageUrl": "https://example.com/images/soy_milk.jpg",
-          "productName": "Soy Milk",
-          "productPrice": 3.19
         }
       ]
     },
@@ -476,11 +471,6 @@ let mockGroceryData =  """
           "productImageUrl": "https://example.com/images/lemonade.jpg",
           "productName": "Lemonade",
           "productPrice": 1.89
-        },
-        {
-          "productImageUrl": "https://example.com/images/iced_tea.jpg",
-          "productName": "Iced Tea",
-          "productPrice": 2.29
         }
       ]
     },
@@ -605,6 +595,21 @@ let mockGroceryData =  """
           "productImageUrl": "https://example.com/images/pizza.jpg",
           "productName": "Pizza",
           "productPrice": 5.99
+        },
+        {
+          "productImageUrl": "https://example.com/images/frozen_vegetables.jpg",
+          "productName": "Frozen Vegetables",
+          "productPrice": 3.29
+        },
+        {
+          "productImageUrl": "https://example.com/images/frozen_fruit.jpg",
+          "productName": "Frozen Fruit",
+          "productPrice": 3.49
+        },
+        {
+          "productImageUrl": "https://example.com/images/frozen_meat.jpg",
+          "productName": "Frozen Meat",
+          "productPrice": 6.99
         },
         {
           "productImageUrl": "https://example.com/images/frozen_vegetables.jpg",
@@ -774,26 +779,6 @@ let mockGroceryData =  """
           "productImageUrl": "https://example.com/images/cherry.jpg",
           "productName": "Cherry",
           "productPrice": 2.99
-        },
-        {
-          "productImageUrl": "https://example.com/images/orange.jpg",
-          "productName": "Orange",
-          "productPrice": 1.49
-        },
-        {
-          "productImageUrl": "https://example.com/images/pear.jpg",
-          "productName": "Pear",
-          "productPrice": 1.69
-        },
-        {
-          "productImageUrl": "https://example.com/images/grape.jpg",
-          "productName": "Grape",
-          "productPrice": 2.49
-        },
-        {
-          "productImageUrl": "https://example.com/images/strawberry.jpg",
-          "productName": "Strawberry",
-          "productPrice": 3.49
         }
       ]
     },
@@ -871,16 +856,6 @@ let mockGroceryData =  """
           "productImageUrl": "https://example.com/images/broccoli.jpg",
           "productName": "Broccoli",
           "productPrice": 1.29
-        },
-        {
-          "productImageUrl": "https://example.com/images/cucumber.jpg",
-          "productName": "Cucumber",
-          "productPrice": 0.89
-        },
-        {
-          "productImageUrl": "https://example.com/images/spinach.jpg",
-          "productName": "Spinach",
-          "productPrice": 1.49
         }
       ]
     },
@@ -958,11 +933,6 @@ let mockGroceryData =  """
           "productImageUrl": "https://example.com/images/paprika.jpg",
           "productName": "Paprika",
           "productPrice": 2.49
-        },
-        {
-          "productImageUrl": "https://example.com/images/garlic_powder.jpg",
-          "productName": "Garlic Powder",
-          "productPrice": 3.19
         }
       ]
     },
@@ -1040,21 +1010,6 @@ let mockGroceryData =  """
           "productImageUrl": "https://example.com/images/rice.jpg",
           "productName": "Rice",
           "productPrice": 4.29
-        },
-        {
-          "productImageUrl": "https://example.com/images/bran.jpg",
-          "productName": "Bran",
-          "productPrice": 2.99
-        },
-        {
-          "productImageUrl": "https://example.com/images/quinoa.jpg",
-          "productName": "Quinoa",
-          "productPrice": 5.49
-        },
-        {
-          "productImageUrl": "https://example.com/images/barley.jpg",
-          "productName": "Barley",
-          "productPrice": 3.69
         }
       ]
     },
@@ -1132,11 +1087,6 @@ let mockGroceryData =  """
           "productImageUrl": "https://example.com/images/smoothie.jpg",
           "productName": "Smoothie",
           "productPrice": 5.29
-        },
-        {
-          "productImageUrl": "https://example.com/images/milk.jpg",
-          "productName": "Milk",
-          "productPrice": 2.79
         }
       ]
     },
@@ -1214,11 +1164,6 @@ let mockGroceryData =  """
           "productImageUrl": "https://example.com/images/lemonade.jpg",
           "productName": "Lemonade",
           "productPrice": 1.89
-        },
-        {
-          "productImageUrl": "https://example.com/images/iced_tea.jpg",
-          "productName": "Iced Tea",
-          "productPrice": 2.29
         }
       ]
     },
@@ -1355,6 +1300,21 @@ let mockGroceryData =  """
           "productPrice": 3.49
         },
         {
+          "productImageUrl": "https://example.com/images/frozen_meat.jpg",
+          "productName": "Frozen Meat",
+          "productPrice": 6.99
+        },
+        {
+          "productImageUrl": "https://example.com/images/frozen_vegetables.jpg",
+          "productName": "Frozen Vegetables",
+          "productPrice": 3.29
+        },
+        {
+          "productImageUrl": "https://example.com/images/frozen_fruit.jpg",
+          "productName": "Frozen Fruit",
+          "productPrice": 3.49
+        },
+        {
           "productImageUrl": "https://example.com/images/pizza.jpg",
           "productName": "Pizza",
           "productPrice": 5.99
@@ -1425,6 +1385,16 @@ let mockGroceryData =  """
           "productImageUrl": "https://example.com/images/cookies.jpg",
           "productName": "Cookies",
           "productPrice": 2.99
+        },
+        {
+          "productImageUrl": "https://example.com/images/nuts.jpg",
+          "productName": "Nuts",
+          "productPrice": 3.79
+        },
+        {
+          "productImageUrl": "https://example.com/images/popcorn.jpg",
+          "productName": "Popcorn",
+          "productPrice": 1.99
         }
       ]
     }

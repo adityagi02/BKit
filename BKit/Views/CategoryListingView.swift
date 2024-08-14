@@ -22,6 +22,7 @@ struct CategoryListingView: View {
                             imageID: getImageIndex(string: category.categoryName),
                             categoryName: category.categoryName
                         )
+                        .animation(.easeInOut)
                             .padding(.vertical, 8)
                     }
                 }
@@ -36,7 +37,3 @@ struct CategoryListingView: View {
         return (string.hash.hashValue % 30) * ((string.hash.hashValue % 30) > 0 ? 1 : -1)
     }
 }
-
-//#Preview {
-//    CategoryListingView(selectedCategoryID: 0)
-//}

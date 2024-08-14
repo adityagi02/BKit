@@ -66,6 +66,10 @@ struct Product: Codable, Hashable, Identifiable {
     }
 }
 
+
 enum ScrollPosition: Hashable {
+    /// Represents a scroll position within a product card list.
+    ///
+    /// This enum case stores the index of the product card associated with the scroll position.
     case productCard(index: Int)
 }

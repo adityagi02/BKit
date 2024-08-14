@@ -14,7 +14,6 @@ class CategoryProductViewModel: ObservableObject {
     @Published var selectedCategoryID: Int = 0
     /// A handler for interacting with the API to fetch product data.
     private var apiHandler: ProductsDataAPIHandling
-    
     @Published var categories: [Category]?
     @Published private var _selectedProducts: [Product] = []
     var selectedProducts: [Product] {
