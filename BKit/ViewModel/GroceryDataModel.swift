@@ -65,3 +65,7 @@ struct Product: Codable, Hashable, Identifiable {
         return (string.hash.hashValue % 30) * ((string.hash.hashValue % 30) > 0 ? 1 : -1)
     }
 }
+
+enum ScrollPosition: Hashable {
+    case productCard(index: Int)
+}

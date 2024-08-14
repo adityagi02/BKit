@@ -26,7 +26,7 @@ struct SideBarCategoryCardView: View {
             productImageView
             productInfoView
         }
-        .shadow(radius: selected ? 8 : 0)
+        .shadow(radius: selected ? 14 : 0)
     }
     
     @ViewBuilder
@@ -50,7 +50,7 @@ struct SideBarCategoryCardView: View {
         .cornerRadius(8)
         .clipShape(Circle())
         .overlay {
-            Circle().stroke(selected ? .green : .gray, lineWidth: 0.6)
+            Circle().stroke(selected ? .white : .green, lineWidth: selected ? 1 : 0.6)
         }
     }
     

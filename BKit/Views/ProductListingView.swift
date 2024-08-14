@@ -14,14 +14,13 @@ struct ProductListingView: View {
     /// The current vertical scroll offset of the `ScrollView`.
     @State private var scrollOffset: CGFloat = 0
     /// The threshold scroll offset for changing the selected category.
-    @State private var scrollThreshold = 150.0
+    @State private var scrollThreshold = (UIScreen.main.bounds.height * 0.25)
     /// A timer used to debounce automatic category changes based on scrolling.
     @State private var timer: Timer?
     
     /// The maximum scroll offset for the current category's products.
     private var maxScrollOffset: CGFloat {
-//        CGFloat((self.category.products?.count ?? 3) * (-90))
-        -1000
+        CGFloat((self.dataModel.getCategoryFromID(categoryID: dataModel.selectedCategoryID).products?.count ?? 3) * (-90))
     }
     
     var body: some View {
@@ -34,12 +33,13 @@ struct ProductListingView: View {
                 ObservableScrollView(contentOffset: $scrollOffset) {
                     LazyVGrid(columns: [GridItem(.flexible()), GridItem(.flexible())], spacing: 4) {
                         if let products = dataModel.getCategoryFromID(categoryID: dataModel.selectedCategoryID).products {
-                            ForEach(products, id: \.id) { product in
+                            ForEach(products.indices, id: \.self) { index in
                                 ProductCardView (
-                                    imageID: ((product.productImageIndex ?? 20) % 20),
-                                    productName: product.productName ?? "--",
-                                    productPrice: product.productPrice ?? 0.00
+                                    imageID: ((products[index].productImageIndex ?? 20) % 20),
+                                    productName: products[index].productName ?? "--",
+                                    productPrice: products[index].productPrice ?? 0.00
                                 )
+                                .id(ScrollPosition.productCard(index: index))
                                 .padding(2)
                             }
                         }
@@ -53,7 +53,7 @@ struct ProductListingView: View {
                 }
                 .onChange(of: dataModel.selectedCategoryID) { _ in
                     withAnimation {
-                        proxy.scrollTo(0, anchor: .top)
+                        proxy.scrollTo(ScrollPosition.productCard(index: 0), anchor: .top)
                     }
                 }
             }
