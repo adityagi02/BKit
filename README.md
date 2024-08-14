@@ -28,23 +28,21 @@ Preview Video: https://drive.google.com/file/d/1b6gMwN-pHSOWJKp_cXitCaIeFceyF576
 
 ## Project Structure
 
-### Models
+### ViewModels
 
+- **CategoryProductViewModel**: Manages the state and data fetching. Handles category selection and updates the view when categories change.
 - **GroceryData**: Handles the overall data structure for categories.
 - **Category**: Represents individual categories and their associated products.
 - **Product**: Represents individual products and includes utility methods for image indexing.
-
-### ViewModels
-
-- **GroceriesViewModel**: Manages the state and data fetching. Handles category selection and updates the view when categories change.
+- **ProductsDataAPIHandler**: An implementation defining the API handling behavior for fetching grocery data.
 
 ### Views
 
 - **ContentView**: Combines the sidebar and product listing into a cohesive user interface.
-- **ProductCategoryCard**: Allows category selection and updates the sidebar.
-- **SideBarCategoryCardView**: Displays category details in the sidebar.
+- **CategoryCardView**: Displays category details in the sidebar.
 - **ProductListingView**: Manages and displays products, handling category scrolling.
 - **ProductCardView**: Displays individual product details.
+- **CategoryListingView**: Manages and displays categories, handling product & scrolling.
 
 ### Utilities
 
