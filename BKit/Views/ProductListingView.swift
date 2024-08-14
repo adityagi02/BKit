@@ -10,22 +10,18 @@ import SwiftUI
 /// A view for displaying a grid of products within a selected category.
 ///
 struct ProductListingView: View {
-    /// The category of products to display.
-    var category: Category
+    @ObservedObject var dataModel: CategoryProductViewModel
     /// The current vertical scroll offset of the `ScrollView`.
     @State private var scrollOffset: CGFloat = 0
-    /// A binding to the ID of the currently selected category.
-    @Binding var selectedCategoryID: Int
     /// The threshold scroll offset for changing the selected category.
     @State private var scrollThreshold = 150.0
     /// A timer used to debounce automatic category changes based on scrolling.
     @State private var timer: Timer?
-    /// The total number of categories available.
-    var totalCategories: Int
     
     /// The maximum scroll offset for the current category's products.
     private var maxScrollOffset: CGFloat {
-        CGFloat((self.category.products?.count ?? 3) * (-90))
+//        CGFloat((self.category.products?.count ?? 3) * (-90))
+        -1000
     }
     
     var body: some View {
@@ -37,7 +33,7 @@ struct ProductListingView: View {
             ScrollViewReader { proxy in
                 ObservableScrollView(contentOffset: $scrollOffset) {
                     LazyVGrid(columns: [GridItem(.flexible()), GridItem(.flexible())], spacing: 4) {
-                        if let products = category.products {
+                        if let products = dataModel.getCategoryFromID(categoryID: dataModel.selectedCategoryID).products {
                             ForEach(products, id: \.id) { product in
                                 ProductCardView (
                                     imageID: ((product.productImageIndex ?? 20) % 20),
@@ -55,7 +51,7 @@ struct ProductListingView: View {
                 .onDisappear {
                     timer?.invalidate()
                 }
-                .onChange(of: selectedCategoryID) { _ in
+                .onChange(of: dataModel.selectedCategoryID) { _ in
                     withAnimation {
                         proxy.scrollTo(0, anchor: .top)
                     }
@@ -74,18 +70,18 @@ struct ProductListingView: View {
     /// - Parameter newValue: The new scroll offset value.
     private func handleScrollOffsetChange(_ newValue: CGFloat) {
         // Scroll down to the bottom of the current category
-        if newValue < maxScrollOffset && selectedCategoryID < totalCategories - 1 {
+        if newValue < maxScrollOffset && dataModel.selectedCategoryID < (dataModel.categories?.count ?? 1) - 1 {
             timer?.invalidate()
             timer = Timer.scheduledTimer(withTimeInterval: 0.05, repeats: false) { _ in
-                selectedCategoryID += 1
+                dataModel.selectedCategoryID += 1
             }
         }
         // Scroll up to the top of the current category
-        if newValue > scrollThreshold && selectedCategoryID > 0 {
+        if newValue > scrollThreshold && dataModel.selectedCategoryID > 0 {
             timer?.invalidate()
             timer = Timer.scheduledTimer(withTimeInterval: 0.05, repeats: false) { _ in
-                if selectedCategoryID > 0 {
-                    selectedCategoryID -= 1
+                if dataModel.selectedCategoryID > 0 {
+                    dataModel.selectedCategoryID -= 1
                 }
             }
         }

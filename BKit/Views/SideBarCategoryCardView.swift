@@ -11,7 +11,7 @@ import SwiftUI
 ///
 struct SideBarCategoryCardView: View {
     /// A binding to a Boolean value indicating whether the category is selected.
-    @Binding var selected: Bool
+    var selected: Bool
     /// The identifier for the image to be displayed.
     var imageID: Int
     /// The name of the category.
@@ -26,6 +26,7 @@ struct SideBarCategoryCardView: View {
             productImageView
             productInfoView
         }
+        .shadow(radius: selected ? 8 : 0)
     }
     
     @ViewBuilder
@@ -49,7 +50,7 @@ struct SideBarCategoryCardView: View {
         .cornerRadius(8)
         .clipShape(Circle())
         .overlay {
-            Circle().stroke(.gray, lineWidth: 0.6)
+            Circle().stroke(selected ? .green : .gray, lineWidth: 0.6)
         }
     }
     
@@ -58,6 +59,7 @@ struct SideBarCategoryCardView: View {
         VStack(alignment: .leading) {
             Text("\(categoryName)")
                 .font(.system(size: 10))
+                .fontWeight(selected ? .bold : .regular)
                 .foregroundColor(selected ? .green : .black)
                 .multilineTextAlignment(.center)
         }
