@@ -1,5 +1,4 @@
 # Grocery App
-(My Submission for BlinKit Assignment)
 
 ## Overview
 
@@ -16,10 +15,10 @@ The BKit App is a SwiftUI-based application designed to display a categorized li
 
 1. **Clone the Repository**: Clone the repository using Git:
     ```bash
-    git clone https://github.com/your-repo/grocery-app.git
+    git clone https://github.com/adityagi02/BKit
     ```
 
-2. **Open the Project**: Open the `GroceryApp.xcodeproj` file in Xcode.
+2. **Open the Project**: Open the `BKit.xcodeproj` file in Xcode.
 
 3. **No Dependencies**
 
