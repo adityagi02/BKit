@@ -1,9 +1,10 @@
 # Grocery App
-(My Submission for BlinKit Assignment)
 
 ## Overview
 
 The BKit App is a SwiftUI-based application designed to display a categorized list of grocery products. The app features only one screen having a sidebar for category selection and a dynamic product listing that updates based on the selected category. It includes scrolling behavior to automatically switch categories when scrolling through product lists. The project is designed with a clean and modern UI using SwiftUI and leverages asynchronous data fetching.
+
+Preview Video: https://drive.google.com/file/d/1-Pw-xlisZznbbq9olPgaRg3c6ZQKGhzU/view?usp=sharing
 
 ## Features
 
@@ -16,10 +17,10 @@ The BKit App is a SwiftUI-based application designed to display a categorized li
 
 1. **Clone the Repository**: Clone the repository using Git:
     ```bash
-    git clone https://github.com/your-repo/grocery-app.git
+    git clone https://github.com/adityagi02/BKit
     ```
 
-2. **Open the Project**: Open the `GroceryApp.xcodeproj` file in Xcode.
+2. **Open the Project**: Open the `BKit.xcodeproj` file in Xcode.
 
 3. **No Dependencies**
 
