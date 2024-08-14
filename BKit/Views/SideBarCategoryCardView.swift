@@ -50,7 +50,7 @@ struct SideBarCategoryCardView: View {
         .cornerRadius(8)
         .clipShape(Circle())
         .overlay {
-            Circle().stroke(selected ? .white : .green, lineWidth: selected ? 1 : 0.6)
+            Circle().stroke(selected ? .green : .white, lineWidth: selected ? 1 : 0.6)
         }
     }
     

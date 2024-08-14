@@ -14,7 +14,7 @@ struct ProductListingView: View {
     /// The current vertical scroll offset of the `ScrollView`.
     @State private var scrollOffset: CGFloat = 0
     /// The threshold scroll offset for changing the selected category.
-    @State private var scrollThreshold = (UIScreen.main.bounds.height * 0.25)
+    @State private var scrollThreshold = (UIScreen.main.bounds.height * 0.20)
     /// A timer used to debounce automatic category changes based on scrolling.
     @State private var timer: Timer?
     
